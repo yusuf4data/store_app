@@ -3,6 +3,7 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 
 import 'package:store_app/widgets/app_bar_icons.dart';
 import 'package:store_app/widgets/my_input_decoration.dart';
+import 'package:store_app/widgets/sale_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -47,7 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   controller: _textEditingController,
                   keyboardType: TextInputType.text,
                   decoration: myInputDecoration(context),
-                )
+                ),
+                SaleWidget()
               ],
             ),
           )),
