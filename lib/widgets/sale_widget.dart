@@ -11,7 +11,7 @@ class SaleWidget extends StatelessWidget {
       height: size.height * 0.2,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
             colors: [
               Color.fromARGB(255, 131, 88, 133),
               Color.fromARGB(255, 106, 146, 226),
@@ -70,11 +70,11 @@ class SaleWidget extends StatelessWidget {
           Flexible(
               flex: 3,
               child: Padding(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 child: Image.asset(
-                  'assets/images/admin.png',
+                  'assets/images/shoes.jpg',
                   width: double.infinity,
-                  fit: BoxFit.contain,
+                  fit: BoxFit.fill,
                 ),
               ))
         ],

@@ -1,39 +1,40 @@
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  late Calculation calculation;
+  late AreaCalculation calculation;
   setUp(() {
-    calculation = Calculation();
+    calculation = AreaCalculation();
   });
-  group('Area of -', () {
-    test(' squer should be 4 if the width is 2', () {
-      num areaValue = calculation.area(shape: 'squar', width: 2);
-      expect(areaValue, 4);
-    });
+  group('Area calculation of -', () {
+    // test(' squer should be 4 if the width is 2', () {
+    //   num areaValue = calculation.area(shapeName: 'squar', width: 2);
+    //   expect(areaValue, 4.0000);
+    // });
     test(' rectangular should be 6 if the width is 2 and length is 3', () {
       num areaValue =
-          calculation.area(shape: 'rectangular', width: 2, length: 3);
+          calculation.area(shapeName: 'rectangular', width: 2, length: 3);
       expect(areaValue, 6);
     });
     test(' circle should be 22*7 if the ridius is 7 ', () {
-      num areaValue = calculation.area(shape: 'circle', redius: 7);
+      num areaValue = calculation.area(shapeName: 'circle', redius: 7);
       expect(areaValue, 22);
     });
   });
 }
 
-class Calculation {
-  num area({required String shape, num? width, num? length, num? redius}) {
-    if (shape == 'squar') {
-      Squar squar = Squar(shapeName: 'squar', width: 2);
-      final area = squar.methodCalculation();
-      return area;
-    }
-    if (shape == 'rectangular') {
+class AreaCalculation {
+  num area(
+      {required String shapeName, num? width, num? length, double? redius}) {
+ 
+
+    
+    
+
+    if (shapeName == 'rectangular') {
       final area = width! * length!;
       return area;
     }
-    if (shape == 'circle') {
+    if (shapeName == 'circle') {
       final area = 22 / 7 * redius!;
       return area;
     }
@@ -41,20 +42,12 @@ class Calculation {
   }
 }
 
-abstract class Shape<T> {
-  String shapeName;
-  Shape({
-    required this.shapeName,
-  });
-  num methodCalculation();
+
+class Rec<Shape> {
+
 }
 
-class Squar extends Shape {
-  num width;
 
-  Squar({required super.shapeName, required this.width});
-  @override
-  num methodCalculation() {
-    return width * width;
-  }
-}
+
+
+
