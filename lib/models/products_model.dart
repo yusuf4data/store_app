@@ -29,7 +29,7 @@ class ProductsModel {
     creationAt = json['creationAt'];
     updatedAt = json['updatedAt'];
     category = json['category'] != null
-        ? new Category.fromJson(json['category'])
+        ? Category.fromJson(json['category'])
         : null;
   }
 

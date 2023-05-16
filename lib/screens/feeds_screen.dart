@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:store_app/models/products_model.dart';
-import 'package:store_app/widgets/my_grid_view_builder.dart';
+import 'package:store_app/widgets/general_grid_view_builder.dart';
 
 class FeedsScreen extends StatelessWidget {
   List<ProductsModel> allProducts;
@@ -17,10 +17,14 @@ class FeedsScreen extends StatelessWidget {
         title: const Text('All products'),
       ),
       body: SingleChildScrollView(
-        child: MyGridViewBuilder(
-          allProducts: allProducts,
-        ),
-      ),
+          child: GeneralGridViewBuilder<ProductsModel>(
+        allData: allProducts,
+      )
+          // MyGridViewBuilder(
+
+          //   allProducts: allProducts,
+          // ),
+          ),
     );
   }
 }

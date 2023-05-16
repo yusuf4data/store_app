@@ -1,10 +1,16 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+
 import 'package:store_app/constants/global_colors.dart';
+import 'package:store_app/models/user_model.dart';
 
 class UsersWidget extends StatelessWidget {
-  const UsersWidget({Key? key}) : super(key: key);
+  UserModel userModel;
+  UsersWidget({
+    Key? key,
+    required this.userModel,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +18,8 @@ class UsersWidget extends StatelessWidget {
 
     return ListTile(
       leading: FancyShimmerImage(
-        imageUrl:
-            'https://e7.pngegg.com/pngimages/382/622/png-clipart-sneakers-skate-shoe-nike-one-nike-shoe-purple-fashion-thumbnail.png',
-        height: size.height * .15,
+        imageUrl: userModel.avatar.toString(),
+        height: size.width * .15,
         width: size.width * .15,
         boxFit: BoxFit.fill,
         errorWidget: const Icon(
@@ -23,10 +28,10 @@ class UsersWidget extends StatelessWidget {
           size: 28,
         ),
       ),
-      title: Text('user name'),
-      subtitle: Text('yua@gmail.cmom'),
+      title: Text(userModel.name.toString()),
+      subtitle: Text(userModel.email.toString()),
       trailing: Text(
-        'user role',
+        userModel.role.toString(),
         style: TextStyle(
           color: lightIconsColor,
           fontWeight: FontWeight.bold,

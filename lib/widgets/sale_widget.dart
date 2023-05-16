@@ -33,12 +33,12 @@ class SaleWidget extends StatelessWidget {
                   color: const Color.fromARGB(255, 176, 124, 178),
                   borderRadius: BorderRadius.circular(18),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.max,
-                    children: const [
+                    children: [
                       Text(
                         'Get the special disccont',
                         style: TextStyle(color: Colors.white),

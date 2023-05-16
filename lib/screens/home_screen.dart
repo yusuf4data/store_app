@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:store_app/models/products_model.dart';
+import 'package:store_app/screens/categories_screen.dart';
 import 'package:store_app/screens/feeds_screen.dart';
 import 'package:store_app/screens/users_screen.dart';
 import 'package:store_app/services/api_handler.dart';
 
 import 'package:store_app/widgets/app_bar_icons.dart';
-import 'package:store_app/widgets/feeds_widget.dart';
-import 'package:store_app/widgets/my_grid_view_builder.dart';
+import 'package:store_app/widgets/general_grid_view_builder.dart';
 import 'package:store_app/widgets/my_input_decoration.dart';
 import 'package:store_app/widgets/sale_widget.dart';
 
@@ -23,6 +23,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late TextEditingController _textEditingController;
   List<ProductsModel> allProducts = [];
+
   @override
   void initState() {
     _textEditingController = TextEditingController();
@@ -35,9 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  @override
-  void didChangeDependencies() async {
-    allProducts = await APIHandler().getAllProducts();
+  Future<List<ProductsModel>> getAllData() async {
+    allProducts = await APIHandler<ProductsModel>().getAllData('products');
+    return allProducts;
   }
 
   @override
@@ -49,7 +50,17 @@ class _HomeScreenState extends State<HomeScreen> {
           appBar: AppBar(
             // backgroundColor: Colors.red,
             title: const Text('Home'),
-            leading: AppBarIcons(icon: IconlyBold.category, function: () {}),
+            leading: AppBarIcons(
+                icon: IconlyBold.category,
+                function: () {
+                  Navigator.push(
+                    context,
+                    PageTransition(
+                      child: const CategoriesScreen(),
+                      type: PageTransitionType.fade,
+                    ),
+                  );
+                }),
             actions: [
               AppBarIcons(
                   function: () {
@@ -115,8 +126,29 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        MyGridViewBuilder(
-                          allProducts: allProducts,
+                        FutureBuilder(
+                          future: getAllData(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return const CircularProgressIndicator();
+                            } else if (snapshot.connectionState ==
+                                ConnectionState.none) {
+                              return const Text(
+                                  'Please, check your connection to internet');
+                            } else {
+                              if (snapshot.hasData) {
+                                return GeneralGridViewBuilder(
+                                  allData: allProducts,
+                                );
+                                // MyGridViewBuilder(
+                                //   allProducts: snapshot.data!,
+                                // );
+                              }
+                            }
+
+                            return const CircularProgressIndicator();
+                          },
                         ),
                       ],
                     ),
