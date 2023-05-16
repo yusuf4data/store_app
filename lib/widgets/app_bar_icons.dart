@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AppBarIcons extends StatelessWidget {
-  VoidCallback function;
-  IconData icon;
-  AppBarIcons({
+  final VoidCallback function;
+  final IconData icon;
+ const AppBarIcons({
     Key? key,
     required this.function,
     required this.icon,

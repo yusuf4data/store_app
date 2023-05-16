@@ -4,8 +4,8 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:store_app/models/category.dart';
 
 class CategoryWidget extends StatelessWidget {
-  Category category;
-  CategoryWidget({
+  final Category category;
+  const CategoryWidget({
     Key? key,
     required this.category,
   }) : super(key: key);

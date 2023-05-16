@@ -6,8 +6,8 @@ import 'package:store_app/constants/global_colors.dart';
 import 'package:store_app/models/user_model.dart';
 
 class UsersWidget extends StatelessWidget {
-  UserModel userModel;
-  UsersWidget({
+  final UserModel userModel;
+  const UsersWidget({
     Key? key,
     required this.userModel,
   }) : super(key: key);

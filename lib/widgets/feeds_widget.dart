@@ -8,8 +8,8 @@ import 'package:store_app/models/products_model.dart';
 import 'package:store_app/screens/product_details.dart';
 
 class FeedsWidget extends StatelessWidget {
-  ProductsModel productsModel;
-  FeedsWidget({
+ final ProductsModel productsModel;
+ const FeedsWidget({
     Key? key,
     required this.productsModel,
   }) : super(key: key);

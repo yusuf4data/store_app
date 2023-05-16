@@ -7,8 +7,8 @@ import 'package:store_app/widgets/feeds_widget.dart';
 import 'package:store_app/widgets/user_widget.dart';
 
 class CustomWidget<T> extends StatelessWidget {
-  T data;
-  CustomWidget({
+ final T data;
+ const CustomWidget({
     Key? key,
     required this.data,
   }) : super(key: key);

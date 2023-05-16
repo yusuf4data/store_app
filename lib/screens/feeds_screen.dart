@@ -4,8 +4,8 @@ import 'package:store_app/models/products_model.dart';
 import 'package:store_app/widgets/general_grid_view_builder.dart';
 
 class FeedsScreen extends StatelessWidget {
-  List<ProductsModel> allProducts;
-  FeedsScreen({
+ final List<ProductsModel> allProducts;
+  const FeedsScreen({
     Key? key,
     required this.allProducts,
   }) : super(key: key);

@@ -38,7 +38,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             //   category: snapshot.data!.first,
             // );
           }
-          return Center(child: const CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         },
       ),
     );

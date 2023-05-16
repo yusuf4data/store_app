@@ -1,1 +1,1 @@
-const Base_URL = 'api.escuelajs.co';
+const baseURL = 'api.escuelajs.co';

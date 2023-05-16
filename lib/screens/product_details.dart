@@ -5,14 +5,15 @@ import 'package:store_app/constants/global_colors.dart';
 import 'package:store_app/models/products_model.dart';
 
 class ProductDetails extends StatefulWidget {
-  ProductsModel productsModel;
-  ProductDetails({
+  final ProductsModel productsModel;
+  const ProductDetails({
     Key? key,
     required this.productsModel,
   }) : super(key: key);
 
   @override
-  _ProductDetailsState createState() => _ProductDetailsState();
+ 
+  State<ProductDetails> createState() => _ProductDetailsState();
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
@@ -62,7 +63,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                       child: RichText(
                         text: TextSpan(
                             text: '\$',
-                            style: const TextStyle(fontSize: 25, color: Colors.blue),
+                            style: const TextStyle(
+                                fontSize: 25, color: Colors.blue),
                             children: [
                               TextSpan(
                                   text: widget.productsModel.price.toString(),

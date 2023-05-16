@@ -14,7 +14,7 @@ class APIHandler<T> implements Repository {
     // if (type == 'products') {
     //   quaryParameter = {'offset': '0', 'limit': '10'};
     // }
-    Uri uri = Uri.https(Base_URL, '/api/v1/$type');
+    Uri uri = Uri.https(baseURL, '/api/v1/$type');
 
     var response = await http.get(uri);
     var data = jsonDecode(response.body);
